@@ -1,5 +1,6 @@
-{
-      "questions" : [
+
+
+{"questions" : [
           { 
             "question" : "Which is not an advantage of using a closure?",
             "answers" : [
@@ -11,7 +12,7 @@
             "correctAnswer" : 3
           },
           {
-            "question" : "To create a columned list of two­line email subjects and dates for a master­detail view, which are the most semantically correct?",
+            "question" : "To create a columned list of twoline email subjects and dates for a master­detail view, which are the most semantically correct?",
             "answers" : [
                 "<div>+<span>",
                 "<tr>+<td>",
@@ -46,14 +47,18 @@
             ],
             "correctAnswer" : 1
           },
-{
-    "question": "Given this code: angular.module('myModule').service('myService',function() {var message = \"Message one!\"var getMessage = function() {return this.message}this.message = \"Message two!\" this.getMessage = function() { return message }function() {{getMessage: getMessage,message: \"Message three!\"}}}, Which message will be returned by injecting this service and executing \"myService.getMessage()\"",
-    "answers": [
-        "Message one!",
-        "Message two!",
-        "Message three!"
-    ],
-    "correctAnswer": 0
-}
+          {
+              "question": "Given this code: angular.module('myModule').service('myService',function() {var message = \"Message one!\"var getMessage = function() {return this.message}this.message = \"Message two!\" this.getMessage = function() { return message }function() {{getMessage: getMessage,message: \"Message three!\"}}}, Which message will be returned by injecting this service and executing \"myService.getMessage()\"",
+              "answers": [
+                  "Message one!",
+                  "Message two!",
+                  "Message three!"
+              ],
+              "correctAnswer": 0
+          }
       ]
 }
+
+  
+
+

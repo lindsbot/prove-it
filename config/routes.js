@@ -1,6 +1,7 @@
 var async = require('async');
 
 module.exports = function(app, passport, auth) {
+
     //User Routes
     var users = require('../app/controllers/users');
     app.get('/signin', users.signin);
@@ -10,8 +11,7 @@ module.exports = function(app, passport, auth) {
     //include quiz data
     var quiz = require('../app/quiz.json');
     app.get('/quizData', function(req, res){
-        console.log(res)
-        res.send(quiz);
+        res.json(quiz);
     });
 
 
