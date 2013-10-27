@@ -7,6 +7,15 @@ module.exports = function(app, passport, auth) {
     app.get('/signup', users.signup);
     app.get('/signout', users.signout);
 
+    //include quiz data
+    var quiz = require('../app/quiz.json');
+    app.get('/quizData', function(req, res){
+        console.log(res)
+        res.send(quiz);
+    });
+
+
+
     //Setting up the users api
     app.post('/users', users.create);
 
