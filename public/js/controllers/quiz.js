@@ -3,7 +3,7 @@ angular.module('mean.system').controller('QuizController', ['$scope', '$http', '
 
   $http.get('http://localhost:3000/quizData?callback=JSON_CALLBACK')
     .success(function(data, status, headers, config){
-      $scope.quiz = data;
+      $scope.quiz = data.questions;
       console.log("hooray!");
     })
     .error(function(data, status, headers, config){
