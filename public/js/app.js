@@ -2,3 +2,4 @@ window.app = angular.module('mean', ['ngCookies', 'ngResource', 'ui.bootstrap', 
 
 angular.module('mean.system', []);
 angular.module('mean.articles', []);
+

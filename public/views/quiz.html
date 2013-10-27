@@ -1,0 +1,15 @@
+<section data-ng-controller="QuizController">
+<form name="input" ng-submit="score()">
+  <ul class="questions">
+    <li data-ng-repeat="item in quiz">
+        <h3>{{item.question}}</h3>
+      <ul class="answers">
+        <label class="radio" data-ng-repeat="answer in item.answers">
+          <input type="radio" value="{{answer}}" ng-change="selectAnswer(question, answer)" ng-model="$parent.question.selected"> {{answer}}
+        </label>
+      </ul>
+    </li>
+  </ul>
+  <input type="submit" value="Submit">
+</form>
+</section>

@@ -1,7 +1,7 @@
 {
     "db": "mongodb://localhost/mean-dev",
     "app": {
-        "name": "MEAN - A Modern Stack - Development"
+        "name": "Prove-It | An Angular Quiz App"
     },
     "facebook": {
         "clientID": "APP_ID",

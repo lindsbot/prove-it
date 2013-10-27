@@ -17,6 +17,9 @@ window.app.config(['$routeProvider',
         when('/', {
             templateUrl: 'views/index.html'
         }).
+        when('/quiz', {
+            templateUrl: 'views/quiz.html'
+        }).
         otherwise({
             redirectTo: '/'
         });
