@@ -20,7 +20,6 @@ angular.module('mean.system').controller('QuizController', ['$scope', '$http', '
       console.log("response: ", data, "status: ", status, "headers: ", headers, "config: ", config);
     });
 
-
   $scope.selectedAnswers = {};
 
   $scope.selectAnswer = function(question, answer) {
@@ -35,8 +34,27 @@ angular.module('mean.system').controller('QuizController', ['$scope', '$http', '
   }
 
   $scope.score = function() {
-    console.log( "selected: ", $scope.selectedAnswers );
-    console.log( "actual multipleChoice: ", $scope.quiz.multipleChoice );
+
+    //build correct answer hash
+    $scope.correctAnswers = {};
+
+    for (var i = 0; i < $scope.quiz.multipleChoice.length; i++) {
+      var hashKey = $scope.quiz.multipleChoice[i].$$hashKey;
+      console.log($scope.quiz.multipleChoice[i])
+      var answer = $scope.quiz.multipleChoice[i].correctAnswer;
+      $scope.correctAnswers[hashKey] = answer;
+    }
+
+    for (var i = 0; i < $scope.quiz.fillIn.length; i++) {
+      var hashKey = $scope.quiz.fillIn[i].$$hashKey;
+      var answer = $scope.quiz.fillIn[i].correctAnswers;
+      // console.log($scope.quiz.fillIn[i].$$hashKey)
+      // console.log($scope.quiz.multipleChoice[i].$$hashKey)
+      // console.log($scope.quiz.fillIn[i].correctAnswers)
+      $scope.correctAnswers[hashKey] = answer;
+    }
+
+      
 
   };
 
