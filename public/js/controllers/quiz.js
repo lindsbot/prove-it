@@ -35,7 +35,9 @@ angular.module('mean.system').controller('QuizController', ['$scope', '$http', '
   }
 
   $scope.score = function() {
-    console.log( $scope.selectedAnswers );
+    console.log( "selected: ", $scope.selectedAnswers );
+    console.log( "actual multipleChoice: ", $scope.quiz.multipleChoice );
+
   };
 
 }]);

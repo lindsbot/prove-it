@@ -2,18 +2,18 @@
 
 {"questions" : [
           { 
-            "question" : "Which is not an advantage of using a closure?",
+            "question" : "Which is not an advantage of using a closure?",
             "answers" : [
                 "Prevent pollution of global scope",
                 "Encapsulation",
                 "Private properties and methods",
                 "Allow conditional use of 'strict mode'"
             ],
-            "correctAnswer" : 3,
+            "correctAnswer" : "Allow conditional use of 'strict mode'",
             "type" : "multiple_choice"
           },
           {
-            "question" : "To create a columned list of twoline email subjects and dates for a master­-detail view, which are the most semantically correct?",
+            "question" : "To create a columned list of twoline email subjects and dates for a master­-detail view, which are the most semantically correct?",
             "answers" : [
                 "<div>+<span>",
                 "<tr>+<td>",
@@ -22,7 +22,7 @@
                 "none of these",
                 "all of these"
             ],
-            "correctAnswer" : 1,
+            "correctAnswer" : "<div>+<span>",
             "type" : "multiple_choice"
           },
           {
@@ -32,7 +32,7 @@
                 "fn.call(this, stringsArray)",
                 "fn.bind(this, stringsArray)"
             ],
-            "correctAnswer" : 1,
+            "correctAnswer" : "fn.call(this, stringsArray)",
             "type" : "multiple_choice"
           },
           {
@@ -46,22 +46,22 @@
                 "getElementById(\"outer\").children[0]",
                 "getElementsByClassName(\"inner\")[0]"
             ],
-            "correctAnswer" : 1,
+            "correctAnswer" : "getElementsByClassName(\"inner\")[0]",
             "type" : "multiple_choice"
           },
           {
-              "question": "Given this code: angular.module('myModule').service('myService',function() {var message = \"Message one!\"var getMessage = function() {return this.message}this.message = \"Message two!\" this.getMessage = function() { return message }function() {{getMessage: getMessage,message: \"Message three!\"}}}, Which message will be returned by injecting this service and executing \"myService.getMessage()\"",
+              "question": "Given this code: angular.module('myModule').service('myService',function() {var message = \"Message one!\"var getMessage = function() {return this.message}this.message = \"Message two!\" this.getMessage = function() { return message }function() {{getMessage: getMessage,message: \"Message three!\"}}}, Which message will be returned by injecting this service and executing \"myService.getMessage()\"",
               "answers": [
                   "Message one!",
                   "Message two!",
                   "Message three!"
               ],
-              "correctAnswer" : 0,
+              "correctAnswer" : "Message one!",
               "type" : "multiple_choice"
           }
       ]
 }
 
-  
+
 
 
