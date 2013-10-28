@@ -9,6 +9,7 @@ ul.articles li:not(:last-child) {
 .questions {
   list-style-type: none;
   margin-right: 20px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .answers {

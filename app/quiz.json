@@ -13,7 +13,7 @@
             "type" : "multiple_choice"
           },
           {
-            "question" : "To create a columned list of twoline email subjects and dates for a master­detail view, which are the most semantically correct?",
+            "question" : "To create a columned list of twoline email subjects and dates for a master­-detail view, which are the most semantically correct?",
             "answers" : [
                 "<div>+<span>",
                 "<tr>+<td>",

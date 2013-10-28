@@ -1,21 +1,26 @@
 <section data-ng-controller="QuizController">
+<h1>Take this AngularJS quiz to prove it</h1>
+<br>
+
 <form name="quiz" ng-submit="score()">
   <ul class="questions">
     <li data-ng-repeat="item in quiz.multipleChoice" >
-        <h3>{{item.question}}</h3>
+      <pre class="questions"><h4>{{item.question}}</h4></pre>
       <div class="answers">
         <label class="radio" data-ng-repeat="answer in item.answers">
           <input type="radio" value="{{answer}}" ng-change="selectAnswer(question, answer)" ng-model="$parent.question.selected"> {{answer}}
         </label>
       </div>
+      <br>
     </li>
     <li data-ng-repeat="item in quiz.fillIn">
-      <h3>{{item.question}}</h3>
+      <pre class="questions"><h4>{{item.question}}</h4></pre>
       <div class="answers">
         <label data-ng-repeat="field in item.correctAnswers">
           <input type="text" placeholder="Answer {{item.correctAnswers.indexOf(field) + 1 }}" ng-change="fillInAnswer(item, fillIn, $index)" ng-model="fillIn">
         </label>
       </div>
+      <br>
     </li>
   </ul>
   <input type="submit" value="Submit">
