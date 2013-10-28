@@ -1,12 +1,21 @@
 <section data-ng-controller="QuizController">
 <form name="input" ng-submit="score()">
   <ul class="questions">
-    <li data-ng-repeat="item in quiz">
+    <li data-ng-repeat="item in quiz.multipleChoice">
         <h3>{{item.question}}</h3>
       <ul class="answers">
         <label class="radio" data-ng-repeat="answer in item.answers">
           <input type="radio" value="{{answer}}" ng-change="selectAnswer(question, answer)" ng-model="$parent.question.selected"> {{answer}}
         </label>
+      </ul>
+    </li>
+    <li data-ng-repeat="item in quiz.fillIn">
+      <h3>{{item.question}}</h3>
+      <ul class="answers">
+        <li>
+          <input type="text">
+          <input type="text">
+        </li>
       </ul>
     </li>
   </ul>
