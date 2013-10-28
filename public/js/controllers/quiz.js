@@ -1,4 +1,4 @@
-angular.module('mean.system').controller('QuizController', ['$scope', '$http', 'Global', function ($scope, $http, Global){
+angular.module('mean').controller('QuizController', ['$scope', '$http', 'Global', '$location', function ($scope, $http, Global, $location){
   $scope.global = Global;
 
   $http.get('http://localhost:3000/quizData?callback=JSON_CALLBACK')
@@ -16,7 +16,7 @@ angular.module('mean.system').controller('QuizController', ['$scope', '$http', '
       }
     })
     .error(function(data, status, headers, config){
-      console.log("error </3 ");
+      console.log("error getting quiz data </3 ");
       console.log("response: ", data, "status: ", status, "headers: ", headers, "config: ", config);
     });
 
@@ -62,6 +62,8 @@ angular.module('mean.system').controller('QuizController', ['$scope', '$http', '
     };
 
     console.log(deepEquals($scope.correctAnswers, $scope.selectedAnswers))
+
+    $location.path('/results')
   };
 
 }]);

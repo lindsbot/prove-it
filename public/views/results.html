@@ -1,5 +1,14 @@
 <section data-ng-controller="QuizController">
 
-
+<table>
+  <tr>
+    <th>Question</th>
+    <th>Your Answer</th>
+    <th>Correct Answer</th>
+  </tr>
+  <tr data-ng-repeat="question in multipleChoice">
+    {{question}}
+  </tr>
+</table>
 
 </section>

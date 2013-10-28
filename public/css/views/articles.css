@@ -1,4 +1,4 @@
-h1, h2 {
+h1, h2, h3 {
     text-align:center
 }
 
@@ -16,3 +16,10 @@ ul.articles li:not(:last-child) {
   list-style-type: none;
   margin-left: 35px; 
 }
+
+.gridStyle {
+    border: 1px solid rgb(212,212,212);
+    width: 400px; 
+    height: 300px
+}
+
