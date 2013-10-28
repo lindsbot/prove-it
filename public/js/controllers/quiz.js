@@ -48,13 +48,10 @@ angular.module('mean.system').controller('QuizController', ['$scope', '$http', '
     for (var i = 0; i < $scope.quiz.fillIn.length; i++) {
       var hashKey = $scope.quiz.fillIn[i].$$hashKey;
       var answer = $scope.quiz.fillIn[i].correctAnswers;
-      // console.log($scope.quiz.fillIn[i].$$hashKey)
-      // console.log($scope.quiz.multipleChoice[i].$$hashKey)
-      // console.log($scope.quiz.fillIn[i].correctAnswers)
       $scope.correctAnswers[hashKey] = answer;
     }
 
-      
+
 
   };
 
