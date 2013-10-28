@@ -40,7 +40,6 @@ angular.module('mean.system').controller('QuizController', ['$scope', '$http', '
 
     for (var i = 0; i < $scope.quiz.multipleChoice.length; i++) {
       var hashKey = $scope.quiz.multipleChoice[i].$$hashKey;
-      console.log($scope.quiz.multipleChoice[i])
       var answer = $scope.quiz.multipleChoice[i].correctAnswer;
       $scope.correctAnswers[hashKey] = answer;
     }
@@ -51,8 +50,18 @@ angular.module('mean.system').controller('QuizController', ['$scope', '$http', '
       $scope.correctAnswers[hashKey] = answer;
     }
 
+    var deepEquals = function(apple, orange){
+        if (apple === orange) {return true;}
+        if (!(apple instanceof Object) || !(orange instanceof Object)) {return false;} 
+        if (Object.keys(apple).length !== Object.keys(orange).length) {return false;}
+        for (var key in apple) {
+          if (apple[key] === orange[key]) {continue;}
+          if (!deepEquals(apple[key], orange[key])) {return false}  
+        }
+        return true;
+    };
 
-
+    console.log(deepEquals($scope.correctAnswers, $scope.selectedAnswers))
   };
 
 }]);
