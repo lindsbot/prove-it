@@ -38,7 +38,7 @@
           {
             "question" : " ____ and ____ would be the HTML tags you would use to display a menu item and its description.",
             "type" : "fill_in",
-            "numFields" : 2
+            "correctAnswers" : ["answer1", "answer2"]
           },
           {
             "question" : "Given <div id=\"outer\"><div class=\"inner\"></div></div>, which of these two is the most performant way to select the inner div?",

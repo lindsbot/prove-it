@@ -20,13 +20,22 @@ angular.module('mean.system').controller('QuizController', ['$scope', '$http', '
       console.log("response: ", data, "status: ", status, "headers: ", headers, "config: ", config);
     });
 
+
+  $scope.selectedAnswers = {};
+
   $scope.selectAnswer = function(question, answer) {
     question.selected = answer;
+    $scope.selectedAnswers[this.item.$$hashKey] = answer;
   };
 
+  $scope.fillInAnswer = function(question, answer, index) {
+    question.answers = question.answers || [];
+    question.answers[index] = answer;
+    $scope.selectedAnswers[this.item.$$hashKey] = question.answers;
+  }
+
   $scope.score = function() {
-    alert("hey girl");
-    console.log($scope.quiz)
+    console.log( $scope.selectedAnswers );
   };
 
 }]);
