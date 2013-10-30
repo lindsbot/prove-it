@@ -8,7 +8,7 @@
       <pre class="questions"><h4>{{item.question}}</h4></pre>
       <div class="answers">
         <label class="radio" data-ng-repeat="answer in item.answers">
-          <input type="radio" value="{{answer}}" ng-change="selectAnswer(question, answer)" ng-model="$parent.question.selected"> {{answer}}
+          <input type="radio" value="{{answer}}" ng-change="selectAnswer(question, answer, this.$parent.$index)" ng-model="$parent.question.selected"> {{answer}}
         </label>
       </div>
       <br>
@@ -17,7 +17,7 @@
       <pre class="questions"><h4>{{item.question}}</h4></pre>
       <div class="answers">
         <label data-ng-repeat="field in item.correctAnswers">
-          <input type="text" placeholder="Answer {{item.correctAnswers.indexOf(field) + 1 }}" ng-change="fillInAnswer(item, fillIn, $index)" ng-model="fillIn">
+          <input type="text" placeholder="Answer {{item.correctAnswers.indexOf(field) + 1 }}" ng-change="fillInAnswer(item, fillIn, $index, 5)" ng-model="fillIn">
         </label>
       </div>
       <br>

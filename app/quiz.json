@@ -1,7 +1,7 @@
 
 
 {"questions" : [
-          { 
+          { "id" : "001",
             "question" : "Which is not an advantage of using a closure?",
             "answers" : [
                 "Prevent pollution of global scope",
@@ -12,7 +12,7 @@
             "correctAnswer" : "Allow conditional use of 'strict mode'",
             "type" : "multiple_choice"
           },
-          {
+          { "id" : "002",
             "question" : "To create a columned list of twoline email subjects and dates for a master­-detail view, which are the most semantically correct?",
             "answers" : [
                 "<div>+<span>",
@@ -25,7 +25,7 @@
             "correctAnswer" : "<div>+<span>",
             "type" : "multiple_choice"
           },
-          {
+          { "id" : "003",
             "question" : "To pass an array of strings to a function, you should not use...",
             "answers" : [
                 "fn.apply(this, stringsArray)",
@@ -35,12 +35,12 @@
             "correctAnswer" : "fn.call(this, stringsArray)",
             "type" : "multiple_choice"
           },
-          {
+          { "id" : "004",
             "question" : " ____ and ____ would be the HTML tags you would use to display a menu item and its description.",
             "type" : "fill_in",
             "correctAnswers" : ["answer1", "answer2"]
           },
-          {
+          { "id" : "005",
             "question" : "Given <div id=\"outer\"><div class=\"inner\"></div></div>, which of these two is the most performant way to select the inner div?",
             "answers" : [
                 "getElementById(\"outer\").children[0]",
@@ -49,15 +49,15 @@
             "correctAnswer" : "getElementsByClassName(\"inner\")[0]",
             "type" : "multiple_choice"
           },
-          {
-              "question": "Given this code: angular.module('myModule').service('myService',function() {var message = \"Message one!\"var getMessage = function() {return this.message}this.message = \"Message two!\" this.getMessage = function() { return message }function() {{getMessage: getMessage,message: \"Message three!\"}}}, Which message will be returned by injecting this service and executing \"myService.getMessage()\"",
-              "answers": [
-                  "Message one!",
-                  "Message two!",
-                  "Message three!"
-              ],
-              "correctAnswer" : "Message one!",
-              "type" : "multiple_choice"
+          { "id" : "006", 
+            "question": "Given this code: angular.module('myModule').service('myService',function() {var message = \"Message one!\"var getMessage = function() {return this.message}this.message = \"Message two!\" this.getMessage = function() { return message }function() {{getMessage: getMessage,message: \"Message three!\"}}}, Which message will be returned by injecting this service and executing \"myService.getMessage()\"",
+            "answers": [
+                "Message one!",
+                "Message two!",
+                "Message three!"
+            ],
+            "correctAnswer" : "Message one!",
+            "type" : "multiple_choice"
           }
       ]
 }

@@ -1,4 +1,4 @@
-angular.module('mean').controller('QuizController', ['$scope', '$http', 'Global', '$location', function ($scope, $http, Global, $location){
+angular.module('mean').controller('QuizController', ['$scope', '$http', 'Global', '$location', 'resultsService', function ($scope, $http, Global, $location, resultsService){
   $scope.global = Global;
 
   $http.get('http://localhost:3000/quizData?callback=JSON_CALLBACK')
@@ -14,56 +14,64 @@ angular.module('mean').controller('QuizController', ['$scope', '$http', 'Global'
           $scope.quiz.fillIn.push(data.questions[i]);
         }
       }
+
+      //build correct answer array
+      $scope.correctAnswers = {};
+
+      for (var i = 0; i < $scope.quiz.multipleChoice.length; i++) {
+        var id = $scope.quiz.multipleChoice[i].id;
+        var answer = $scope.quiz.multipleChoice[i].correctAnswer;
+        $scope.correctAnswers[id] = answer;
+      }
+
+      for (var i = 0; i < $scope.quiz.fillIn.length; i++) {
+        var answer = $scope.quiz.fillIn[i].correctAnswers;
+        var id = $scope.quiz.fillIn[i].id;
+        $scope.correctAnswers[id] = answer;
+      }
+
     })
     .error(function(data, status, headers, config){
       console.log("error getting quiz data </3 ");
       console.log("response: ", data, "status: ", status, "headers: ", headers, "config: ", config);
     });
 
-  $scope.selectedAnswers = {};
+  $scope.responses = {};
+  $scope.responsesArray = [];
 
-  $scope.selectAnswer = function(question, answer) {
+  $scope.selectAnswer = function(question, answer, index) {
     question.selected = answer;
-    $scope.selectedAnswers[this.item.$$hashKey] = answer;
+    var id = this.item.id;
+    $scope.responses[id] = {
+      id: id,
+      question: this.item.question,
+      correctAnswer: this.item.correctAnswer,
+      selectedAnswer: question.selected
+    };
   };
 
-  $scope.fillInAnswer = function(question, answer, index) {
+  $scope.fillInAnswer = function(question, answer, index, parentIndex) {
     question.answers = question.answers || [];
     question.answers[index] = answer;
-    $scope.selectedAnswers[this.item.$$hashKey] = question.answers;
-  }
+    var id = this.item.id;
+    $scope.responses[id] = {
+      id: id,
+      question: this.item.question,
+      correctAnswer: this.item.correctAnswer,
+      selectedAnswer: question.answers
+    };
+  };
 
   $scope.score = function() {
-
-    //build correct answer hash
-    $scope.correctAnswers = {};
-
-    for (var i = 0; i < $scope.quiz.multipleChoice.length; i++) {
-      var hashKey = $scope.quiz.multipleChoice[i].$$hashKey;
-      var answer = $scope.quiz.multipleChoice[i].correctAnswer;
-      $scope.correctAnswers[hashKey] = answer;
+    for (var key in $scope.responses) {
+      $scope.responsesArray.push($scope.responses[key]);
     }
 
-    for (var i = 0; i < $scope.quiz.fillIn.length; i++) {
-      var hashKey = $scope.quiz.fillIn[i].$$hashKey;
-      var answer = $scope.quiz.fillIn[i].correctAnswers;
-      $scope.correctAnswers[hashKey] = answer;
-    }
+    $location.path('/results');
 
-    var deepEquals = function(apple, orange){
-        if (apple === orange) {return true;}
-        if (!(apple instanceof Object) || !(orange instanceof Object)) {return false;} 
-        if (Object.keys(apple).length !== Object.keys(orange).length) {return false;}
-        for (var key in apple) {
-          if (apple[key] === orange[key]) {continue;}
-          if (!deepEquals(apple[key], orange[key])) {return false}  
-        }
-        return true;
-    };
-
-    console.log(deepEquals($scope.correctAnswers, $scope.selectedAnswers))
-
-    $location.path('/results')
+    resultsService.setResults($scope.responsesArray);
+    console.log(resultsService.getResults());
+  
   };
 
 }]);
