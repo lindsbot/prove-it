@@ -57,7 +57,7 @@ angular.module('mean').controller('QuizController', ['$scope', '$http', 'Global'
     $scope.responses[id] = {
       id: id,
       question: this.item.question,
-      correctAnswer: this.item.correctAnswer,
+      correctAnswer: this.item.correctAnswers,
       selectedAnswer: question.answers
     };
   };
