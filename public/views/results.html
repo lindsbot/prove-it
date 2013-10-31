@@ -1,13 +1,15 @@
 <section data-ng-controller="QuizController">
 
-<table class="table">
+<table ng-table="tableParams" class="table">
   <tr>
     <th>Question</th>
     <th>Your Answer</th>
     <th>Correct Answer</th>
   </tr>
-  <tr data-ng-repeat="item in ">
-    <td>{{item}}</td>
+  <tr data-ng-repeat="item in results">
+    <td data-title="'Question'">{{item.question}}</td>
+    <td data-title="'Your Answer'">{{item.question}}</td>
+    <td data-title="'Correct Answer'">{{item.question}}</td>
   </tr>
 </table>
 

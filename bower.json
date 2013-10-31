@@ -1,12 +1,17 @@
 {
-    "name": "prove-it",
-    "version": "0.1.0",
-    "dependencies": {
-        "bootstrap": "2.3.2",
-        "angular": "1.0.6",
-        "angular-resource": "1.0.6",
-        "angular-cookies": "1.0.6",
-        "angular-bootstrap": "0.6.0",
-        "angular-ui-utils": "0.0.4"
-    }
+  "name": "prove-it",
+  "version": "0.1.0",
+  "dependencies": {
+    "bootstrap": "2.3.2",
+    "angular": "1.0.6",
+    "angular-resource": "1.0.6",
+    "angular-cookies": "1.0.6",
+    "angular-bootstrap": "0.6.0",
+    "angular-ui-utils": "0.0.4",
+    "ng-table": "~0.3.0",
+    "angular-route": "~1.2.0-rc.3"
+  },
+  "resolutions": {
+    "angular": ">=1.2.0-rc.2"
+  }
 }
