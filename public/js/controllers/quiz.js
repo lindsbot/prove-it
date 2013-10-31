@@ -1,4 +1,4 @@
-angular.module('mean').controller('QuizController', ['$scope', '$http', 'Global', '$location', 'resultsService', 'ngTableParams', function ($scope, $http, Global, $location, resultsService, ngTableParams){
+angular.module('mean').controller('QuizController', ['$rootScope', '$scope', '$http', 'Global', '$location', 'resultsService', 'ngTableParams', function ($rootScope, $scope, $http, Global, $location, resultsService, ngTableParams){
   $scope.global = Global;
 
   $http.get('http://localhost:3000/quizData?callback=JSON_CALLBACK')
@@ -72,15 +72,14 @@ angular.module('mean').controller('QuizController', ['$scope', '$http', 'Global'
     $location.path('/results');
 
     resultsService.setResults($scope.responsesArray);
-    $scope.results = resultsService.getResults();
-    console.log($scope.results)
+    $rootScope.results = resultsService.getResults();
 
     $scope.tableParams = new ngTableParams(
         {
           page: 1,
           count: 10
         }, {
-          total: results.length,
+          total: $rootScope.results.length,
           getData: function($defer, params) {
             $defer.resolve(data.slice((params.page() - 1) * params.count(), params.page() * params.count()));
           }

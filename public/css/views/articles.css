@@ -23,3 +23,7 @@ ul.articles li:not(:last-child) {
     height: 300px
 }
 
+td {
+  max-width: 200px;
+  word-wrap: break-word;
+}
