@@ -1,5 +1,5 @@
 {
-    "db": "mongodb://localhost/mean",
+    "db": "mongodb://lindsayhertz:MOlrh137@paulo.mongohq.com:10045/lindsbot",
     "app": {
         "name": "Prove-It | An Angular Quiz App"
     },
