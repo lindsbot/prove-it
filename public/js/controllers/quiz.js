@@ -1,7 +1,7 @@
 angular.module('quiz').controller('QuizController', ['$rootScope', '$scope', '$http', 'Global', '$location', 'resultsService', 'ngTableParams', function ($rootScope, $scope, $http, Global, $location, resultsService, ngTableParams){
   $scope.global = Global;
 
-  $http.get('http://localhost:3000/quizData?callback=JSON_CALLBACK')
+  $http.get('/quizData?callback=JSON_CALLBACK')
     .success(function(data, status, headers, config){
       $scope.quiz = {};
       $scope.quiz.multipleChoice = [];
