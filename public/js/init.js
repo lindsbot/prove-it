@@ -1,5 +1,5 @@
 window.bootstrap = function() {
-    angular.bootstrap(document, ['mean']);
+    angular.bootstrap(document, ['quiz']);
 };
 
 window.init = function() {

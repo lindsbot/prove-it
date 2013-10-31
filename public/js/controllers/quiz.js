@@ -1,4 +1,4 @@
-angular.module('mean').controller('QuizController', ['$rootScope', '$scope', '$http', 'Global', '$location', 'resultsService', 'ngTableParams', function ($rootScope, $scope, $http, Global, $location, resultsService, ngTableParams){
+angular.module('quiz').controller('QuizController', ['$rootScope', '$scope', '$http', 'Global', '$location', 'resultsService', 'ngTableParams', function ($rootScope, $scope, $http, Global, $location, resultsService, ngTableParams){
   $scope.global = Global;
 
   $http.get('http://localhost:3000/quizData?callback=JSON_CALLBACK')

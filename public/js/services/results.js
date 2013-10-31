@@ -1,4 +1,4 @@
-angular.module('mean')
+angular.module('quiz')
   .service('resultsService', function(){
     var _results;
     return {

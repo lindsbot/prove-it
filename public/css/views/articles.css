@@ -27,3 +27,7 @@ td {
   max-width: 200px;
   word-wrap: break-word;
 }
+
+.alert .close {
+  top: -12px;
+}

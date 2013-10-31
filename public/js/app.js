@@ -1,5 +1,5 @@
-window.app = angular.module('mean', ['ngCookies', 'ngResource', 'ngRoute', 'ngTable', 'ui.bootstrap', 'ui.route', 'mean.system']);
+window.app = angular.module('quiz', ['ngCookies', 'ngResource', 'ngRoute', 'ngTable', 'ui.bootstrap', 'ui.route', 'quiz.system']);
 
-angular.module('mean.system', []);
-angular.module('mean.articles', []);
+angular.module('quiz.system', []);
+angular.module('quiz.articles', []);
 
