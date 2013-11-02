@@ -13,4 +13,13 @@
   </tr>
 </table>
 
+<div class="score">
+  <p>You scored:</p>
+  {{score}}  / {{quiz.multipleChoice.length + quiz.fillIn.length}}
+</div>
+
+<button ng-click="tryAgain()" class="tryAgain">
+  Try Again
+</button>
+
 </section> 

@@ -1,6 +1,6 @@
 angular.module('quiz').controller('QuizController', ['$rootScope', '$scope', '$http', 'Global', '$location', 'resultsService', function ($rootScope, $scope, $http, Global, $location, resultsService, ngTableParams){
   $scope.global = Global;
-  $rootScope.score = 0;
+  $scope.score = 0;
 
   $http.get('/quizData?callback=JSON_CALLBACK')
     .success(function(data, status, headers, config){
@@ -109,7 +109,7 @@ angular.module('quiz').controller('QuizController', ['$rootScope', '$scope', '$h
   };
 
   $scope.correctTest = function(item) {
-
+    $scope.score = resultsService.getScore();
     if (item.correctAnswer instanceof Array) {
         if (item.correctAnswer.compare(item.selectedAnswer)){
           return true;
@@ -119,8 +119,11 @@ angular.module('quiz').controller('QuizController', ['$rootScope', '$scope', '$h
           return true;
         }
       }
-
   };
+
+  $scope.tryAgain = function() {
+    $location.path('/quiz');
+  }
 
 
 }]);
