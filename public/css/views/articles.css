@@ -31,3 +31,11 @@ td {
 .alert .close {
   top: -12px;
 }
+
+.green {
+  background-color: #B9F0BC;
+}
+
+.red {
+  background-color: #FAAAAA;
+}

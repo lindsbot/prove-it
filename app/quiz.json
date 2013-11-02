@@ -9,7 +9,7 @@
                 "Private properties and methods",
                 "Allow conditional use of 'strict mode'"
             ],
-            "correctAnswer" : "Allow conditional use of 'strict mode'",
+            "correctAnswer" : "Allow conditional use of 'strict mode'",
             "type" : "multiple_choice"
           },
           { "id" : "002",
@@ -52,11 +52,11 @@
           { "id" : "006", 
             "question": "Given this code: angular.module('myModule').service('myService',function() {var message = \"Message one!\"var getMessage = function() {return this.message}this.message = \"Message two!\" this.getMessage = function() { return message }function() {{getMessage: getMessage,message: \"Message three!\"}}}, Which message will be returned by injecting this service and executing \"myService.getMessage()\"",
             "answers": [
-                "Message one!",
-                "Message two!",
-                "Message three!"
+                "Message one!",
+                "Message two!",
+                "Message three!"
             ],
-            "correctAnswer" : "Message one!",
+            "correctAnswer" : "Message one!",
             "type" : "multiple_choice"
           }
       ]

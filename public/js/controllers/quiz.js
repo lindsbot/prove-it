@@ -1,5 +1,6 @@
-angular.module('quiz').controller('QuizController', ['$rootScope', '$scope', '$http', 'Global', '$location', 'resultsService', 'ngTableParams', function ($rootScope, $scope, $http, Global, $location, resultsService, ngTableParams){
+angular.module('quiz').controller('QuizController', ['$rootScope', '$scope', '$http', 'Global', '$location', 'resultsService', function ($rootScope, $scope, $http, Global, $location, resultsService, ngTableParams){
   $scope.global = Global;
+  $rootScope.score = 0;
 
   $http.get('/quizData?callback=JSON_CALLBACK')
     .success(function(data, status, headers, config){
@@ -39,8 +40,6 @@ angular.module('quiz').controller('QuizController', ['$rootScope', '$scope', '$h
   $scope.responses = {};
   $scope.responsesArray = [];
 
-  $scope.results;
-
   $scope.selectAnswer = function(question, answer, index) {
     question.selected = answer;
     var id = this.item.id;
@@ -62,31 +61,67 @@ angular.module('quiz').controller('QuizController', ['$rootScope', '$scope', '$h
       correctAnswer: this.item.correctAnswers,
       selectedAnswer: question.answers
     };
+
   };
 
   $scope.score = function() {
+
+    Array.prototype.compare = function (array) {
+      if (!array) { return false; }
+      if (this.length !== array.length) {
+        return false;
+      }
+      for (var i = 0; i < this.length; i++) {
+        if (this[i] instanceof Array && array[i] instanceof Array) {
+          if (!this[i].compare(array[i])) {
+            return false;
+          }
+        }
+        else if (this[i] !== array[i]) {
+          return false;
+        }
+      }
+      return true;
+    }
+
     for (var key in $scope.responses) {
       $scope.responsesArray.push($scope.responses[key]);
     }
 
-    $location.path('/results');
-
     resultsService.setResults($scope.responsesArray);
     $rootScope.results = resultsService.getResults();
 
-    $scope.tableParams = new ngTableParams(
-        {
-          page: 1,
-          count: 10
-        }, {
-          total: $rootScope.results.length,
-          getData: function($defer, params) {
-            $defer.resolve(data.slice((params.page() - 1) * params.count(), params.page() * params.count()));
-          }
-
+    var score = 0;
+    for (var i = 0; i < resultsService.getResults().length; i++) {
+      if (resultsService.getResults()[i].correctAnswer instanceof Array) {
+        if (resultsService.getResults()[i].correctAnswer.compare(resultsService.getResults()[i].selectedAnswer)){
+          score++;
         }
-    );
+      } else {
+        if (resultsService.getResults()[i].correctAnswer === resultsService.getResults()[i].selectedAnswer) {
+          score++;
+        }
+      }
+    }
+    resultsService.setScore(score);
+
+    $location.path('/results');
   };
+
+  $scope.correctTest = function(item) {
+
+    if (item.correctAnswer instanceof Array) {
+        if (item.correctAnswer.compare(item.selectedAnswer)){
+          return true;
+        }
+      } else {
+        if (item.correctAnswer === item.selectedAnswer) {
+          return true;
+        }
+      }
+
+  };
+
 
 }]);
 

@@ -6,7 +6,7 @@
     <th>Your Answer</th>
     <th>Correct Answer</th>
   </tr>
-  <tr data-ng-repeat="item in results">
+  <tr data-ng-repeat="item in results" ng-class="{green: correctTest(item), red: !correctTest(item)}">
     <td>{{item.question}}</td>
     <td>{{item.selectedAnswer}}</td>
     <td>{{item.correctAnswer}}</td>
