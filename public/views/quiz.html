@@ -4,7 +4,7 @@
 
 <form ng-submit="score()">
   <ul class="questions">
-    <li data-ng-repeat="item in quiz.multipleChoice">
+    <li class="question" data-ng-repeat="item in quiz.multipleChoice">
       <pre class="questions"><h4>{{item.question}}</h4></pre>
       <div class="answers">
         <label class="radio" data-ng-repeat="answer in item.answers">
@@ -13,7 +13,7 @@
       </div>
       <br>
     </li>
-    <li data-ng-repeat="item in quiz.fillIn">
+    <li class="question" data-ng-repeat="item in quiz.fillIn">
       <pre class="questions"><h4>{{item.question}}</h4></pre>
       <div class="answers">
         <label data-ng-repeat="field in item.correctAnswers">
