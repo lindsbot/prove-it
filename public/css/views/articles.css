@@ -6,10 +6,6 @@ h1, h2, h3 {
     text-align:center
 }
 
-ul.articles li:not(:last-child) {
-    border-bottom:1px solid #ccc
-}
-
 .questions {
   list-style-type: none;
   margin-right: 20px;
@@ -39,7 +35,7 @@ td {
 }
 
 .green .red {
-
+  border-bottom: 5px solid black;
 }
 
 .score {

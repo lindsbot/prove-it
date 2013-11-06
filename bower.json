@@ -9,7 +9,8 @@
     "angular-bootstrap": "0.6.0",
     "angular-ui-utils": "0.0.4",
     "ng-table": "~0.3.0",
-    "angular-route": "~1.2.0-rc.3"
+    "angular-route": "~1.2.0-rc.3",
+    "angular-scenario": "~1.0.8"
   },
   "resolutions": {
     "angular": ">=1.2.0-rc.2"

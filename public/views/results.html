@@ -15,7 +15,7 @@
 
 <div class="score">
   <p>You scored:</p>
-  {{score}}  / {{quiz.multipleChoice.length + quiz.fillIn.length}}
+  {{score || '0'}} / {{quiz.multipleChoice.length + quiz.fillIn.length}}
 </div>
 
 <button ng-click="tryAgain()" class="tryAgain">

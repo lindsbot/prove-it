@@ -22,7 +22,7 @@
                 "none of these",
                 "all of these"
             ],
-            "correctAnswer" : "<div>+<span>",
+            "correctAnswer" : "<ul>+<li>",
             "type" : "multiple_choice"
           },
           { "id" : "003",
@@ -38,7 +38,7 @@
           { "id" : "004",
             "question" : " ____ and ____ would be the HTML tags you would use to display a menu item and its description.",
             "type" : "fill_in",
-            "correctAnswers" : ["answer1", "answer2"]
+            "correctAnswers" : ["<ul>", "<li>"]
           },
           { "id" : "005",
             "question" : "Given <div id=\"outer\"><div class=\"inner\"></div></div>, which of these two is the most performant way to select the inner div?",
