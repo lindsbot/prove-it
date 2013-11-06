@@ -34,8 +34,8 @@ td {
   background-color: #FAAAAA;
 }
 
-.green .red {
-  border-bottom: 5px solid black;
+.table th {
+  border-top: none;
 }
 
 .score {
